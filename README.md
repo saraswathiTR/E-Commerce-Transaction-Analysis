@@ -35,7 +35,8 @@ A complete end to end data analysis project on an e-commerce transactions datase
 
 ## 📊 Dashboard Preview
 
-![Dashboard] <img width="1121" height="632" alt="Screenshot 2026-02-20 192240" src="https://github.com/user-attachments/assets/5774d2b7-fde9-4326-87ad-bc4e94d96f40" />
+![Dashboard] <img width="1115" height="623" alt="image" src="https://github.com/user-attachments/assets/b4a67fdc-2d95-4fa6-877c-27dbd005734b" />
+
 
 
 **Dashboard contains:**
