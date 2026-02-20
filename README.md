@@ -1,6 +1,6 @@
-# 🛒 E-Commerce Transaction Analysis — SQL Project
+# 🛒 E-Commerce Transaction Analysis — SQL + Power BI Project
 
-A complete SQL data analysis project on an e-commerce transactions dataset. This project covers basic to advanced SQL concepts including aggregations, joins, subqueries, window functions, and date functions.
+A complete end to end data analysis project on an e-commerce transactions dataset. This project covers SQL analysis from basic to advanced level and a Power BI dashboard with interactive visuals.
 
 ---
 
@@ -29,10 +29,26 @@ A complete SQL data analysis project on an e-commerce transactions dataset. This
 - Understand customer behavior by age group and country
 - Identify top performing products and customers
 - Analyze payment method preferences
+- Build an interactive Power BI dashboard
 
 ---
 
-## 📊 Analysis Sections
+## 📊 Dashboard Preview
+
+![Dashboard] <img width="1121" height="632" alt="Screenshot 2026-02-20 192240" src="https://github.com/user-attachments/assets/5774d2b7-fde9-4326-87ad-bc4e94d96f40" />
+
+
+**Dashboard contains:**
+- Total Transactions, Total Revenue, Average Purchase, Total Users (KPI Cards)
+- Sales by Product Category (Bar Chart)
+- Sales by Payment Method (Donut Chart)
+- Total Purchase by Country (Map)
+- Monthly Sales Trend (Line Chart)
+- Country and Product Category Slicers
+
+---
+
+## 🧠 SQL Analysis
 
 ### ✅ Basic Analysis
 - Total number of transactions
@@ -64,24 +80,6 @@ A complete SQL data analysis project on an e-commerce transactions dataset. This
 ### ✅ Customer Segmentation
 - Age group wise sales (Young 18-25, Middle 26-40, Senior 40+)
 - Top 3 countries by number of transactions
-
----
-
-## 🧠 SQL Concepts Used
-
-| Concept | Where Used |
-|---|---|
-| SELECT, WHERE | Basic filtering |
-| GROUP BY | Sales by country, category |
-| ORDER BY | Rankings and trends |
-| SUM, AVG, COUNT, MAX | Aggregations |
-| ROUND | Formatting amounts |
-| TOP N | Top users, countries |
-| DISTINCT | Unique values |
-| CASE WHEN | Age group segmentation |
-| Subqueries | Average comparison, most popular category |
-| MONTH(), YEAR() | Date analysis |
-| HAVING | Filter after aggregation |
 
 ---
 
@@ -130,12 +128,45 @@ HAVING COUNT(*) = (
 );
 ```
 
+**Users Who Spent More Than Average:**
+```sql
+SELECT User_Name, 
+ROUND(SUM(Purchase_Amount), 2) as total_spent
+FROM ecommerce_transactions
+GROUP BY User_Name
+HAVING SUM(Purchase_Amount) > (
+    SELECT AVG(Purchase_Amount) 
+    FROM ecommerce_transactions
+);
+```
+
+---
+
+## 🧰 SQL Concepts Used
+
+| Concept | Where Used |
+|---|---|
+| SELECT, WHERE | Basic filtering |
+| GROUP BY | Sales by country, category |
+| ORDER BY | Rankings and trends |
+| SUM, AVG, COUNT, MAX | Aggregations |
+| ROUND | Formatting amounts |
+| TOP N | Top users, countries |
+| DISTINCT | Unique values |
+| CASE WHEN | Age group segmentation |
+| Subqueries | Average comparison, most popular category |
+| MONTH(), YEAR() | Date analysis |
+| HAVING | Filter after aggregation |
+
 ---
 
 ## 🛠️ Tools Used
 
-- **SQL Server / SSMS** — Query execution
-- **Database:** SalesAnlys
+| Tool | Purpose |
+|---|---|
+| SQL Server | Data storage and querying |
+| SSMS | Writing and running SQL queries |
+| Power BI | Dashboard and visualization |
 
 ---
 
@@ -145,9 +176,23 @@ HAVING COUNT(*) = (
 2. Import the dataset into SQL Server
 3. Create database `SalesAnlys`
 4. Run queries from the `.sql` file
+5. Open `.pbix` file in Power BI Desktop
 
 ```sql
 USE SalesAnlys;
+```
+
+---
+
+## 📂 Project Structure
+
+```
+📁 E-Commerce-Transaction-Analysis
+│
+├── 📄 ecommerce_transactions.csv    -- Raw dataset
+├── 📄 analysis_queries.sql          -- All SQL queries
+├── 📄 E-commerce_Transaction_Analysis.pbix  -- Power BI dashboard
+└── 📄 README.md                     -- Project documentation
 ```
 
 ---
